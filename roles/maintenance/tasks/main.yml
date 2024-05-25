@@ -1,0 +1,13 @@
+---
+
+- name: Backup the world
+  command: zip -r /home/minecraft/purpur/world_backup.zip /home/minecraft/purpur/world
+  become: yes
+  become_user: minecraft
+
+- name: Update system packages
+  apt:
+    upgrade: dist
+    autoremove: yes
+    autoclean: yes
+    update_cache: yes

@@ -1,0 +1,65 @@
+---
+
+- name: Create Purpur directory
+  file:
+    path: "{{ minecraft_home }}/purpur"
+    state: directory
+    owner: minecraft
+    group: minecraft
+    mode: '0755'
+
+- name: Create minecraft logs directory
+  file:
+    path: "{{ minecraft_logs_directory }}"
+    state: directory
+    owner: minecraft
+    group: minecraft
+    mode: '0755'
+
+- name: Download Purpur
+  get_url:
+    url: "https://api.purpurmc.org/v2/purpur/{{ purpur_version }}/{{ purpur_build }}/download"
+    dest: "{{ minecraft_home }}/purpur/purpur-{{ purpur_version }}-{{ purpur_build }}.jar"
+    owner: minecraft
+    group: minecraft
+    mode: '0755'
+
+- name: Deploy server.properties
+  template:
+    src: "server.properties.j2"
+    dest: "{{ minecraft_home }}/purpur/server.properties"
+    owner: minecraft
+    group: minecraft
+    mode: '0755'
+
+- name: Deploy ops.json
+  template:
+    src: "ops.json.j2"
+    dest: "{{ minecraft_home }}/purpur/ops.json"
+    owner: minecraft
+    group: minecraft
+    mode: '0644'
+
+- name: Deploy start.sh
+  template:
+    src: "start.sh.j2"
+    dest: "{{ minecraft_home }}/purpur/start.sh"
+    owner: minecraft
+    group: minecraft
+    mode: '0755'
+
+- name: Accept EULA
+  copy:
+    content: "eula=true\n"
+    dest: "{{ minecraft_home }}/purpur/eula.txt"
+    owner: minecraft
+    group: minecraft
+    mode: '0644'
+
+- name: Deploy minecraft systemd service
+  template:
+    src: "minecraft.service.j2"
+    dest: /etc/systemd/system/minecraft.service
+
+- name: Restart Minecraft service
+  command: systemctl restart minecraft

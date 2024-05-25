@@ -1,0 +1,13 @@
+---
+
+- name: Ensure UFW is installed
+  apt:
+    name: ufw
+    state: present
+
+- name: Allow Minecraft port through UFW
+  ufw:
+    rule: limit
+    port: 25565
+    proto: tcp
+  notify: Restart UFW

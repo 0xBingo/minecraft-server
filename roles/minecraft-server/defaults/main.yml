@@ -1,0 +1,31 @@
+---
+
+purpur_build: "2177"
+purpur_version: "1.20.6"
+
+minecraft_home: "/home/minecraft"
+minecraft_logs_directory: "{{ minecraft_home }}/purpur/logs"
+
+# server.properties
+
+server_ip: "{{ ansible_default_ipv4.address }}"
+server_port: "25565"
+server_name: "mc.bingops.com"
+max_players: 1337
+motd: "\\u00a76\\ud83d\\udc27\\u00a74 Survie\\u00a7f mc\\u00a79.\\u00a76bingops\\u00a79.\\u00a7fcom v\\u00a7b1.20.6\\u00a7r\\n\\u00a7b\\ud83c\\udf10\\u00a7f www.\\u00a76bingops\\u00a7f.com"
+
+difficulty: "normal"
+gamemode: "survival"
+
+allow_flight: true
+view_distance: 32
+
+level_type: "AMPLIFIED"
+
+# ops.json
+
+ops:
+  - uuid: "66ba8c9a-b18a-44e2-ba5d-de29ad585bc5"
+    name: "bingops"
+    level: 4
+    bypassesPlayerLimit: false

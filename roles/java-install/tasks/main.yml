@@ -1,0 +1,67 @@
+---
+- name: Install dependencies
+  apt:
+    name:
+      - wget
+      - zip
+      - screen
+      - apt-transport-https
+    state: present
+    update_cache: yes
+
+#- name: Create keyrings directory
+#  file:
+#    path: /etc/apt/keyrings
+#    state: directory
+#
+#- name: Add Adoptium GPG key
+#  get_url:
+#    url: https://packages.adoptium.net/artifactory/api/gpg/key/public
+#    dest: /etc/apt/keyrings/adoptium.asc
+#    validate_certs: no
+#
+#- name: Add Adoptium APT repository
+#  apt_repository:
+#    repo: "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb {{ ansible_distribution_release | lower }} main"
+#    filename: adoptium
+#
+#- name: Install Temurin 17
+#  apt:
+#    name: temurin-17-jdk
+#    state: present
+#    update_cache: yes
+#
+#- name: Validate Java installation
+#  command: java -version
+#  register: java_version
+#  changed_when: false
+
+- name: Create plugins directory
+  file:
+    path: /opt/java
+    state: directory
+
+- name: "Download JDK {{ java_version }}"
+  get_url:
+    url: "https://download.oracle.com/java/{{ java_version.split('.')[0] }}/archive/jdk-{{ java_version }}_linux-x64_bin.tar.gz"
+    dest: "/tmp/jdk-{{ java_version }}_linux-x64_bin.tar.gz"
+    validate_certs: yes
+
+- name: "Extract JDK {{ java_version }}"
+  unarchive:
+    src: "/tmp/jdk-{{ java_version }}_linux-x64_bin.tar.gz"
+    dest: "/opt/java"
+    remote_src: yes
+
+- name: "Set Java {{ java_version }} as the default Java version"
+  block:
+    - name: Update alternatives for java
+      command: "update-alternatives --install /usr/bin/java java /opt/java/jdk-{{ java_version }}/bin/java 100"
+
+    - name: Update alternatives for javac
+      command: "update-alternatives --install /usr/bin/javac javac /opt/java/jdk-{{ java_version }}/bin/javac 100"
+
+- name: Validate Java installation
+  command: java -version
+  register: java_version
+  changed_when: false

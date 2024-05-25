@@ -1,0 +1,8 @@
+---
+
+- name: Create minecraft user
+  user:
+    name: minecraft
+    state: present
+    create_home: yes
+    shell: /bin/bash

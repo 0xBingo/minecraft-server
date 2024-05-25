@@ -1,0 +1,14 @@
+---
+- name: Create plugins directory
+  file:
+    path: /home/minecraft/purpur/plugins
+    state: directory
+    owner: minecraft
+    group: minecraft
+    mode: '0755'
+
+- name: Include essentials tasks
+  include_tasks: essentials.yml
+
+- name: Restart Minecraft service
+  command: systemctl restart minecraft

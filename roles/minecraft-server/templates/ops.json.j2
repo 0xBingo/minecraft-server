@@ -1,0 +1,10 @@
+[
+{% for op in ops %}
+  {
+    "uuid": "{{ op.uuid }}",
+    "name": "{{ op.name }}",
+    "level": {{ op.level }},
+    "bypassesPlayerLimit": {{ op.bypassesPlayerLimit | lower }}
+  }{% if not loop.last %},{% endif %}
+{% endfor %}
+]

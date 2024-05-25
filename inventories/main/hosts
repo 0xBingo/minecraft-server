@@ -1,0 +1,2 @@
+[hosts]
+minecraft-server ansible_host=152.228.134.44

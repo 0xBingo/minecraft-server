@@ -1,0 +1,16 @@
+[Unit]
+Description=Minecraft Server
+After=network.target
+
+[Service]
+User=minecraft
+Group=minecraft
+WorkingDirectory={{ minecraft_home }}/purpur
+ExecStart={{ minecraft_home }}/purpur/start.sh
+StandardOutput=append:{{ minecraft_home }}/purpur/logs/minecraft.log
+StandardError=append:{{ minecraft_home }}/purpur/logs/minecraft.log
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
