@@ -1,0 +1,7 @@
+---
+
+- name: Download SetHomes plugin
+  get_url:
+    url: https://edge.forgecdn.net/files/3161/41/SetHomes-1.3.0.jar
+    dest: "{{ plugins_home }}/SetHomes-1.3.0.jar"
+    owner: minecraft

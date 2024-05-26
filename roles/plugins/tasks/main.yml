@@ -7,8 +7,14 @@
     group: minecraft
     mode: '0755'
 
-- name: Include essentials tasks
-  include_tasks: essentials.yml
+- name: Include worldedit tasks
+  include_tasks: worldedit.yml
+
+- name: Include chunky tasks
+  include_tasks: chunky.yml
+
+- name: Include sethomes tasks
+  include_tasks: sethomes.yml
 
 - name: Restart Minecraft service
   command: systemctl restart minecraft

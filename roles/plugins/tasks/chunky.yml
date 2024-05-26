@@ -1,0 +1,7 @@
+---
+
+- name: Download Chunky plugin
+  get_url:
+    url: https://cdn.modrinth.com/data/fALzjamp/versions/6ENKPUbu/Chunky-1.4.10.jar
+    dest: "{{ plugins_home }}/Chunky-1.4.10.jar"
+    owner: minecraft

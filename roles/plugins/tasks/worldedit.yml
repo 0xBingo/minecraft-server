@@ -1,0 +1,8 @@
+---
+
+- name: Download WorldEdit plugin
+  get_url:
+    url: https://dev.bukkit.org/projects/worldedit/files/latest
+    dest: "{{ plugins_home }}/worldedit.jar"
+    owner: minecraft
+    mode: '0755'

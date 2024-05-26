@@ -19,8 +19,9 @@ gamemode: "survival"
 
 allow_flight: true
 view_distance: 32
+spawn_protection: 0
 
-level_type: "AMPLIFIED"
+level_type: "normal"
 
 # ops.json
 
