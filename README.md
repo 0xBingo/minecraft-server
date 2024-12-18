@@ -22,7 +22,13 @@ cd minecraft-playbook
 
 Update the `inventory` file with your server's IP address or hostname.
 
-3. **Run the Playbook**:
+3. **Run the Bootstrap**:
+
+```bash
+ansible-playbook bootstrap.yml --private-key=~/.ssh/id_rsa -i inventories/main/hosts
+```
+
+4. **Run the Playbook**:
 
 ```bash
 ansible-playbook site.yml --private-key=~/.ssh/id_rsa -i inventories/main/hosts
@@ -87,4 +93,13 @@ Ensure your server and Java are up to date:
 
 ```bash
 ansible-playbook maintenance.yml --private-key=~/.ssh/id_rsa -i inventories/main/hosts
+```
+
+## Minecraft administration
+
+### LuckyPerms : 
+
+```
+/lp creategroup <name>
+/lp group <name> permission set minecraft.command.gamemode false
 ```
