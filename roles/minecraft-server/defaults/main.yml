@@ -6,6 +6,10 @@ purpur_version: "1.20.6"
 minecraft_home: "/home/minecraft"
 minecraft_logs_directory: "{{ minecraft_home }}/purpur/logs"
 
+# start.sh
+
+server_memory: "6" # Default allocated RAM (in GB)
+
 # server.properties
 
 server_ip: "{{ ansible_default_ipv4.address }}"
@@ -29,4 +33,24 @@ ops:
   - uuid: "66ba8c9a-b18a-44e2-ba5d-de29ad585bc5"
     name: "bingops"
     level: 4
+    bypassesPlayerLimit: true
+
+  - uuid: "02647c2f-b7ff-42da-a568-8366ed8f6422"
+    name: "Linetax"
+    level: 2
+    bypassesPlayerLimit: false
+
+  - uuid: "3b21d6c5-25d3-41e9-98b6-2214b7928ab0"
+    name: "Thais_descufon"
+    level: 2
+    bypassesPlayerLimit: false
+
+  - uuid: "02647c2f-b7ff-42da-a568-8366ed8f6422"
+    name: "ZQv6"
+    level: 2
+    bypassesPlayerLimit: false
+
+  - uuid: "d54b4943-8a7e-4744-9172-2f8c53a04d29"
+    name: "toby145"
+    level: 2
     bypassesPlayerLimit: false
