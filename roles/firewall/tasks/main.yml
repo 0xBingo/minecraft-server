@@ -5,9 +5,24 @@
     name: ufw
     state: present
 
+- name: Enable UFW
+  ufw:
+    state: enabled
+
+- name: Ensure outgoing traffic is allowed
+  ufw:
+    default: allow
+    direction: outgoing
+
 - name: Allow Minecraft port through UFW
   ufw:
     rule: limit
     port: 25565
+    proto: tcp
+
+- name: Allow SSH port through UFW (to avoid lockout)
+  ufw:
+    rule: allow
+    port: 22
     proto: tcp
   notify: Restart UFW
