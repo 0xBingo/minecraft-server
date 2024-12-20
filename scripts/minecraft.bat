@@ -6,7 +6,7 @@ set "MINECRAFT_DOMAIN=mc.example.com"
 set "CLOUDFLARED_URL=https://github.com/cloudflare/cloudflared/releases/download/2024.12.2/cloudflared-windows-amd64.exe"
 set "CLOUDFLARED_EXE=cloudflared-windows-amd64.exe"
 set "DOWNLOAD_DIR=%USERPROFILE%\Downloads"
-set "COMMAND_ARGS=access tcp --hostname %MINECRAFT_DOMAIN% --url localhost:22565"
+set "COMMAND_ARGS=access tcp --hostname %MINECRAFT_DOMAIN% --url localhost:25565"
 
 :: Ensure the Downloads folder exists
 if not exist "%DOWNLOAD_DIR%" (

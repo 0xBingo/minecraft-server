@@ -5,7 +5,7 @@ MINECRAFT_DOMAIN="mc.example.com"
 CLOUDFLARED_URL="https://github.com/cloudflare/cloudflared/releases/download/2024.12.2/cloudflared-windows-amd64.exe"
 CLOUDFLARED_EXE="cloudflared-windows-amd64.exe"
 DOWNLOAD_DIR="$HOME/.minecraft"
-COMMAND_ARGS="access tcp --hostname $MINECRAFT_DOMAIN --url localhost:22565"
+COMMAND_ARGS="access tcp --hostname $MINECRAFT_DOMAIN --url localhost:25565"
 
 # Ensure the Downloads folder exists, create it if missing
 if [ ! -d "$DOWNLOAD_DIR" ]; then

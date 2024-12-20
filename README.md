@@ -106,7 +106,7 @@ Before running the `cloudflare` role, make sure to follow the [create-remote-tun
 If you setuped a cloudflare tunnel using the `cloudflare` role :
 
 1. Make sure to execute the `scripts/minecraft.bat` script (for Windows users) or the `scripts/minecraft.sh` script (for Linux users).
-2. Add the minecraft server in your servers list with the server address `localhost:22565`.
+2. Add the minecraft server in your servers list with the server address `localhost:25565`.
 3. You can connect.
 
 ## Minecraft administration
