@@ -1,7 +1,7 @@
 ---
 
-purpur_build: "2177"
-purpur_version: "1.20.6"
+purpur_build: "2329"
+purpur_version: "1.21.1"
 
 minecraft_home: "/home/minecraft"
 minecraft_logs_directory: "{{ minecraft_home }}/purpur/logs"
