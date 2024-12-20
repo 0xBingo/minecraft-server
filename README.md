@@ -95,6 +95,20 @@ Ensure your server and Java are up to date:
 ansible-playbook maintenance.yml --private-key=~/.ssh/id_rsa -i inventories/main/hosts
 ```
 
+## Cloudflare TCP tunnel
+
+### Server
+
+Before running the `cloudflare` role, make sure to follow the [create-remote-tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/) documentation and add your tunnel token to the `cloudflare_tunnel_token` inside the `roles/cloudflare/defaults/main.yml` file.
+
+### Client
+
+If you setuped a cloudflare tunnel using the `cloudflare` role :
+
+1. Make sure to execute the `scripts/minecraft.bat` script (for Windows users) or the `scripts/minecraft.sh` script (for Linux users).
+2. Add the minecraft server in your servers list with the server address `localhost:22565`.
+3. You can connect.
+
 ## Minecraft administration
 
 ### LuckyPerms : 
