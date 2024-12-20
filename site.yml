@@ -3,9 +3,10 @@
   become: true
   remote_user: "{{ new_admin_user }}"
   roles:
-    #- ssh
+    - ssh
     - firewall
     - java-install
     - minecraft-user
     - minecraft-server
     - plugins
+    #- cloudflare # Uncomment if you want to use a cloudflare tunnel : https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/
