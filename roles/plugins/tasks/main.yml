@@ -16,5 +16,8 @@
 - name: Include sethomes tasks
   include_tasks: sethomes.yml
 
+- name: Include luckperms tasks
+  include_tasks: luckperms.yml
+
 - name: Restart Minecraft service
   command: systemctl restart minecraft

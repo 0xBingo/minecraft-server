@@ -56,6 +56,14 @@
     group: minecraft
     mode: '0644'
 
+- name: Ensure the cron job is present
+  ansible.builtin.cron:
+    name: "Backup the world"
+    minute: "0"
+    hour: "0"
+    user: minecraft
+    job: "zip -r /home/minecraft/purpur/world_backup.zip /home/minecraft/purpur/world"
+
 - name: Deploy minecraft systemd service
   template:
     src: "minecraft.service.j2"

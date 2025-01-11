@@ -1,0 +1,9 @@
+---
+
+- name: Download Chunky plugin
+  get_url:
+    url: https://download.luckperms.net/1543/bukkit/loader/LuckPerms-Bukkit-5.4.130.jar
+    dest: "{{ plugins_home }}/LuckPerms-Bukkit-5.4.130.jar"
+    owner: minecraft
+
+
